@@ -293,59 +293,49 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
   const btn = document.getElementById('submitBtn');
   const formData = new FormData(this);
   
-  // Собираем данные заказа
-  let orderText = `🛒 НОВЫЙ ЗАКАЗ\n\n`;
-  orderText += `👤 Имя: ${formData.get('name')}\n`;
-  if (formData.get('phone')) orderText += `📞 Телефон: ${formData.get('phone')}\n`;
-  if (formData.get('telegram')) orderText += `✈️ Telegram: ${formData.get('telegram')}\n`;
-  if (formData.get('surname')) orderText += `Фамилия: ${formData.get('surname')}\n`;
-  
-  orderText += `\n📦 ТОВАРЫ:\n`;
-  cart.forEach(item => {
-    orderText += `• ${item.name} × ${item.qty} = ${item.price * item.qty} ₽\n`;
-  });
-  
-  const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-  orderText += `\n💰 ИТОГО: ${total} ₽`;
-  
-  // Отправляем через FormSubmit
   btn.disabled = true;
-  btn.textContent = 'Отправка...';
+  btn.textContent = 'Обработка...';
   
-  fetch('https://formspree.io/f/maqaayzq', {
+  // Отправляем в Netlify Function
+  fetch('/.netlify/functions/submit-order', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       name: formData.get('name'),
-      phone: formData.get('phone'),
-      telegram: formData.get('telegram'),
       surname: formData.get('surname'),
-      message: orderText,
-      _captcha: 'false',
-      _template: 'raw'
+      telegram: formData.get('telegram'),
+      phone: formData.get('phone'),
+      items: cart
     })
   })
-  .then(response => {
-    if (response.ok) {
+  .then(async response => {
+    const data = await response.json();
+    
+    if (response.ok && data.success) {
+      // Очищаем корзину
       cart = [];
       localStorage.removeItem('shopCart');
       updateBadge();
-      document.getElementById('checkoutModal').classList.remove('active');
-      alert('✅ Заказ отправлен!');
+      closeCheckout();
+      
+      // Показываем toast
+      showToast('✅ Заказ оформлен! Остатки обновлены.');
+      
+      // Перезагружаем товары с сервера (чтобы увидеть новые остатки)
+      setTimeout(() => {
+        loadProducts();
+      }, 1000);
     } else {
-      throw new Error('Ошибка');
+      throw new Error(data.error || 'Ошибка отправки');
     }
   })
   .catch(error => {
-    alert('❌ Ошибка отправки. Попробуйте позже или напишите нам напрямую.');
     console.error('Error:', error);
+    showToast('❌ Ошибка. Попробуйте позже.', '#ef4444', '#fee2e2');
   })
   .finally(() => {
     btn.disabled = false;
-    btn.textContent = 'Отправить заказ';
+    btn.textContent = 'Оформить заказ';
   });
 });
 
