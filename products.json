@@ -1,6 +1,6 @@
 [
 
-{"id": 1, "name": "Антиперспирант мужской Фа Men Sport", "retail_price": 299, "our_price": 120, "stock": 2, "category": "Уход и гигиена", "img": "images/photo1.jpg"},
+{"id": 1, "name": "Антиперспирант мужской Фа Men Sport", "retail_price": 299, "our_price": 120, "stock": 3, "category": "Уход и гигиена", "img": "images/photo1.jpg"},
 {"id": 2, "name": "Гель для душа Мужской Фа Men", "retail_price": 299, "our_price": 120, "stock": 1, "category": "Уход и гигиена", "img": "images/photo2.jpg"},
 {"id": 3, "name": "Шампунь для волос Garnier", "retail_price": 399, "our_price": 200, "stock": 1, "category": "Уход и гигиена", "img": "images/photo3.jpg"},
 {"id": 4, "name": "Питательный крем Only Bio", "retail_price": 380, "our_price": 190, "stock": 1, "category": "Уход и гигиена", "img": "images/photo4.jpg"},
