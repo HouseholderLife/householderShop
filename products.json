@@ -1,91 +1,740 @@
 [
-
-{"id": 1, "name": "Антиперспирант мужской Фа Men Sport", "retail_price": 299, "our_price": 120, "stock": 3, "category": "Уход и гигиена", "img": "images/photo1.jpg"},
-{"id": 2, "name": "Гель для душа Мужской Фа Men", "retail_price": 299, "our_price": 120, "stock": 1, "category": "Уход и гигиена", "img": "images/photo2.jpg"},
-{"id": 3, "name": "Шампунь для волос Garnier", "retail_price": 399, "our_price": 200, "stock": 1, "category": "Уход и гигиена", "img": "images/photo3.jpg"},
-{"id": 4, "name": "Питательный крем Only Bio", "retail_price": 380, "our_price": 190, "stock": 1, "category": "Уход и гигиена", "img": "images/photo4.jpg"},
-{"id": 5, "name": "Крем-гель для душа Green Nature", "retail_price": 399, "our_price": 200, "stock": 2, "category": "Уход и гигиена", "img": "images/photo5.jpg"},
-{"id": 6, "name": "Концентрат-активатор Pure Line", "retail_price": 249, "our_price": 120, "stock": 2, "category": "Уход и гигиена", "img": "images/photo6.jpg"},
-{"id": 7, "name": "Гель-крем Milk", "retail_price": 0, "our_price": 200, "stock": 1, "category": "Уход и гигиена", "img": "images/photo7.jpg"},
-{"id": 8, "name": "Шампунь Ecolatier Urban", "retail_price": 550, "our_price": 270, "stock": 1, "category": "Уход и гигиена", "img": "images/photo8.jpg"},
-{"id": 9, "name": "Пятновыводитель Synergetic", "retail_price": 450, "our_price": 200, "stock": 4, "category": "Бытовая химия", "img": "images/photo9.jpg"},
-{"id": 10, "name": "Бальзам для волос Чистая Линия", "retail_price": 250, "our_price": 120, "stock": 2, "category": "Уход и гигиена", "img": "images/photo10.jpg"},
-{"id": 11, "name": "Спрей для волос Tresemme", "retail_price": 550, "our_price": 270, "stock": 4, "category": "Уход и гигиена", "img": "images/photo11.jpg"},
-{"id": 12, "name": "Шампунь Tresemme", "retail_price": 290, "our_price": 140, "stock": 3, "category": "Уход и гигиена", "img": "images/photo12.jpg"},
-{"id": 13, "name": "Шампунь Дав", "retail_price": 450, "our_price": 200, "stock": 1, "category": "Уход и гигиена", "img": "images/photo13.jpg"},
-{"id": 14, "name": "Маска Lador", "retail_price": 950, "our_price": 400, "stock": 1, "category": "Уход и гигиена", "img": "images/photo14.jpg"},
-{"id": 15, "name": "Антиперспирант Дав Про-Коллаген", "retail_price": 400, "our_price": 200, "stock": 2, "category": "Уход и гигиена", "img": "images/photo15.jpg"},
-{"id": 16, "name": "Крем-мыло Exxe", "retail_price": 100, "our_price": 50, "stock": 3, "category": "Уход и гигиена", "img": "images/photo16.jpg"},
-{"id": 17, "name": "Бальзам для волос Тоника", "retail_price": 230, "our_price": 110, "stock": 3, "category": "Уход и гигиена", "img": "images/photo17.jpg"},
-{"id": 18, "name": "Профессиональная маска для волос Sowell Total Repair", "retail_price": 0, "our_price": 240, "stock": 1, "category": "Уход и гигиена", "img": "images/photo18.jpg"},
-{"id": 19, "name": "Сыворотка для области вокруг глаз Kumiho Truffle", "retail_price": 790, "our_price": 390, "stock": 1, "category": "Уход и гигиена", "img": "images/photo19.jpg"},
-{"id": 20, "name": "Эссенция для лица Kumiho Truffle ", "retail_price": 950, "our_price": 450, "stock": 1, "category": "Уход и гигиена", "img": "images/photo20.jpg"},
-{"id": 21, "name": "Пилка LAF", "retail_price": 100, "our_price": 50, "stock": 3, "category": "Аксессуары", "img": "images/photo21.jpg"},
-{"id": 22, "name": "Cтакан Pasabahce Набор", "retail_price": 960, "our_price": 400, "stock": 1, "category": "Непрофильный товар", "img": "images/photo22.jpg"},
-{"id": 23, "name": "Мужской дезодорант Deonica", "retail_price": 270, "our_price": 100, "stock": 2, "category": "Уход и гигиена", "img": "images/photo23.jpg"},
-{"id": 24, "name": "Ополаскиватель Лесной Бальзам", "retail_price": 200, "our_price": 200, "stock": 2, "category": "Уход и гигиена", "img": "images/photo24.jpg"},
-{"id": 25, "name": "Мыло Aura Antibacterial active", "retail_price": 140, "our_price": 70, "stock": 4, "category": "Уход и гигиена", "img": "images/photo25.jpg"},
-{"id": 26, "name": "Шампунь для волос Natura Siberica", "retail_price": 600, "our_price": 200, "stock": 3, "category": "Уход и гигиена", "img": "images/photo26.jpg"},
-{"id": 27, "name": "Супербальзам Elseve", "retail_price": 600, "our_price": 250, "stock": 1, "category": "Уход и гигиена", "img": "images/photo27.jpg"},
-{"id": 28, "name": "Бальзам для волос Elseve", "retail_price": 500, "our_price": 180, "stock": 3, "category": "Уход и гигиена", "img": "images/photo28.jpg"},
-{"id": 29, "name": "Туалетная вода Her secret Temptation Antonio Banderas", "retail_price": 3000, "our_price": 1500, "stock": 1, "category": "Парфюмерия", "img": "images/photo29.jpg"},
-{"id": 30, "name": "Туалетная вода Black Seduction Antonio Banderas", "retail_price": 3500, "our_price": 1800, "stock": 1, "category": "Парфюмерия", "img": "images/photo30.jpg"},
-{"id": 31, "name": "Парфюмерная вода F010 Equivalent", "retail_price": 2150, "our_price": 1100, "stock": 1, "category": "Парфюмерия", "img": "images/photo31.jpg"},
-{"id": 32, "name": "Зубная паста Colgate Total 12", "retail_price": 350, "our_price": 130, "stock": 3, "category": "Уход и гигиена", "img": "images/photo32.jpg"},
-{"id": 33, "name": "Туалетная вода Blue Cobalt Pro-Energy", "retail_price": 370, "our_price": 150, "stock": 1, "category": "Парфюмерия", "img": "images/photo33.jpg"},
-{"id": 34, "name": "Зубная паста Natusana Whitening", "retail_price": 150, "our_price": 70, "stock": 2, "category": "Уход и гигиена", "img": "images/photo34.jpg"},
-{"id": 35, "name": "Кератин-шампунь Likato Professional", "retail_price": 400, "our_price": 200, "stock": 1, "category": "Уход и гигиена", "img": "images/photo35.jpg"},
-{"id": 36, "name": "Бальзам оттеночный Палетт Платиновый Блонд", "retail_price": 270, "our_price": 120, "stock": 6, "category": "Уход и гигиена", "img": "images/photo36.jpg"},
-{"id": 37, "name": "Мыло твердое Dexclusive", "retail_price": 100, "our_price": 50, "stock": 6, "category": "Уход и гигиена", "img": "images/photo37.jpg"},
-{"id": 38, "name": "Лимфодренажная криомаска Likato Professional", "retail_price": 500, "our_price": 230, "stock": 2, "category": "Уход и гигиена", "img": "images/photo38.jpg"},
-{"id": 39, "name": "Бомбочка для ваннFabrik Cosmetology", "retail_price": 140, "our_price": 70, "stock": 3, "category": "Уход и гигиена", "img": "images/photo39.jpg"},
-{"id": 40, "name": "Дезодорант женский Фа Ритмы острова Бали", "retail_price": 250, "our_price": 120, "stock": 2, "category": "Уход и гигиена", "img": "images/photo40.jpg"},
-{"id": 41, "name": "Станок Evolution Pro Zollider 3", "retail_price": 680, "our_price": 340, "stock": 2, "category": "Уход и гигиена", "img": "images/photo41.jpg"},
-{"id": 42, "name": "Маска-пленка Compliment Black Mask", "retail_price": 210, "our_price": 100, "stock": 3, "category": "Уход и гигиена", "img": "images/photo42.jpg"},
-{"id": 43, "name": "Гель+скраб+маска", "retail_price": 250, "our_price": 120, "stock": 4, "category": "Уход и гигиена", "img": "images/photo43.jpg"},
-{"id": 44, "name": "Пилинг-скатка Compliment", "retail_price": 170, "our_price": 80, "stock": 4, "category": "Уход и гигиена", "img": "images/photo44.jpg"},
-{"id": 45, "name": "Скраб для тела La Fresh", "retail_price": 240, "our_price": 120, "stock": 1, "category": "Уход и гигиена", "img": "images/photo45.jpg"},
-{"id": 46, "name": "Гель-пенка Чистая Линия", "retail_price": 270, "our_price": 130, "stock": 1, "category": "Уход и гигиена", "img": "images/photo46.jpg"},
-{"id": 47, "name": "Крем-уход Чистая линия", "retail_price": 120, "our_price": 60, "stock": 2, "category": "Уход и гигиена", "img": "images/photo47.jpg"},
-{"id": 48, "name": "Ночной крем для лица Mixit Lab", "retail_price": 439, "our_price": 180, "stock": 2, "category": "Уход и гигиена", "img": "images/photo48.jpg"},
-{"id": 49, "name": "Крем для лица Aravia Laboratories с гиалуроновой кислотой 50мл", "retail_price": 400, "our_price": 200, "stock": 2, "category": "Уход и гигиена", "img": "images/photo49.jpg"},
-{"id": 50, "name": "Выравнивающая пилинг-скатка для лица Черный жемчуг 120мл", "retail_price": 500, "our_price": 250, "stock": 1, "category": "Уход и гигиена", "img": "images/photo50.jpg"},
-{"id": 51, "name": "Сыворотка для лица Aravia Laboratories лифтинг комплекс 30мл", "retail_price": 550, "our_price": 275, "stock": 1, "category": "Уход и гигиена", "img": "images/photo51.jpg"},
-{"id": 52, "name": "Крем для лица Aravia Laboratories с пептидами 50мл", "retail_price": 500, "our_price": 250, "stock": 1, "category": "Уход и гигиена", "img": "images/photo52.jpg"},
-{"id": 53, "name": "ВВ-крем для лица Garnier Гиалуроновый Алоэ-уход 5-в-1 для нормальной кожи с гиалуроновой кислотой алоэ вера и минеральными пигментами увлажняющий SPF20 50мл", "retail_price": 1000, "our_price": 500, "stock": 1, "category": "Уход и гигиена", "img": "images/photo53.jpg"},
-{"id": 54, "name": "Крем для рук Бархатные ручки для всей семьи 200мл", "retail_price": 270, "our_price": 135, "stock": 1, "category": "Уход и гигиена", "img": "images/photo54.jpg"},
-{"id": 55, "name": "Маска для лица Planeta Organica Eco увлажняющая  100мл", "retail_price": 200, "our_price": 100, "stock": 1, "category": "Уход и гигиена", "img": "images/photo55.jpg"},
-{"id": 56, "name": "Маска - экспресс для лица Банька Агафьи Освежающая 100мл", "retail_price": 200, "our_price": 100, "stock": 1, "category": "Уход и гигиена", "img": "images/photo56.jpg"},
-{"id": 57, "name": "Женский дезодорант DA/MS спрей La Fresh 150 мл", "retail_price": 220, "our_price": 110, "stock": 4, "category": "Уход и гигиена", "img": "images/photo57.jpg"},
-{"id": 58, "name": "Мыло BioMio натуральное Манго 90г", "retail_price": 140, "our_price": 70, "stock": 2, "category": "Уход и гигиена", "img": "images/photo58.jpg"},
-{"id": 59, "name": "Сыворотка для лица Невская косметика омолаживающая женьшень 35мл", "retail_price": 190, "our_price": 95, "stock": 3, "category": "Уход и гигиена", "img": "images/photo59.jpg"},
-{"id": 60, "name": "Гель от прыщей Beauty Bomb Acne fighter точечный 15мл", "retail_price": 230, "our_price": 115, "stock": 2, "category": "Уход и гигиена", "img": "images/photo60.jpg"},
-{"id": 61, "name": "Краска для волос Only Bio Color тон 6.0 Натуральный русый 115мл", "retail_price": 210, "our_price": 105, "stock": 5, "category": "Уход и гигиена", "img": "images/photo61.jpg"},
-{"id": 62, "name": "Ватные палочки Моя цена 400шт", "retail_price": 100, "our_price": 50, "stock": 3, "category": "Уход и гигиена", "img": "images/photo62.jpg"},
-{"id": 63, "name": "Лак для волос Тафт Power для укладки Невидимая фиксация Мегафиксация 225мл", "retail_price": 450, "our_price": 225, "stock": 1, "category": "Уход и гигиена", "img": "images/photo63.jpg"},
-{"id": 64, "name": "Пенка для лица Mixit Очищающая с мочевиной и гиалуроновой кислотой 200мл", "retail_price": 550, "our_price": 275, "stock": 1, "category": "Уход и гигиена", "img": "images/photo64.jpg"},
-{"id": 65, "name": "Лосьон после бритья Forx Men Care 100мл", "retail_price": 400, "our_price": 200, "stock": 4, "category": "Уход и гигиена", "img": "images/photo65.jpg"},
-{"id": 66, "name": "Мицелярная вода 3в1 Чистая Линия 100мл", "retail_price": 200, "our_price": 100, "stock": 2, "category": "Уход и гигиена", "img": "images/photo66.jpg"},
-{"id": 67, "name": "Сменные кассеты для бритвы Gillette Labs 4шт", "retail_price": 4000, "our_price": 2000, "stock": 1, "category": "Уход и гигиена", "img": "images/photo67.jpg"},
-{"id": 68, "name": "Шампунь и бальзам - ополаскиватель Head&Shoulders 400мл", "retail_price": 700, "our_price": 350, "stock": 1, "category": "Уход и гигиена", "img": "images/photo68.jpg"},
-{"id": 69, "name": "Гель-уход для душа Крем и кокос NIVEA 250мл", "retail_price": 320, "our_price": 160, "stock": 1, "category": "Уход и гигиена", "img": "images/photo69.jpg"},
-{"id": 70, "name": "Крем-мыло для лица и тела Duru Cream Bar 90г", "retail_price": 100, "our_price": 50, "stock": 2, "category": "Уход и гигиена", "img": "images/photo70.jpg"},
-{"id": 71, "name": "Энзимная пудра Likato Professional 120г", "retail_price": 600, "our_price": 300, "stock": 1, "category": "Уход и гигиена", "img": "images/photo71.jpg"},
-{"id": 72, "name": "Скраб для тела Organic Shop Энзимный Sunny Papaya 300г", "retail_price": 360, "our_price": 180, "stock": 1, "category": "Уход и гигиена", "img": "images/photo72.jpg"},
-{"id": 73, "name": "Спрей восстановление Compliment ArganOil&Ceramides 200мл", "retail_price": 340, "our_price": 170, "stock": 1, "category": "Уход и гигиена", "img": "images/photo73.jpg"},
-{"id": 74, "name": "Пенка для умывания Natura Siberica Lab Biome суперувлажняющая 150мл", "retail_price": 400, "our_price": 200, "stock": 1, "category": "Уход и гигиена", "img": "images/photo74.jpg"},
-{"id": 75, "name": "Энзимная пудра для умывания Stellary Skin Studio Hydrogen", "retail_price": 400, "our_price": 200, "stock": 1, "category": "Уход и гигиена", "img": "images/photo75.jpg"},
-{"id": 76, "name": "Гель для душа и шампунь Акс 3в1 Эпик Фреш 250мл", "retail_price": 420, "our_price": 210, "stock": 1, "category": "Уход и гигиена", "img": "images/photo76.jpg"},
-{"id": 77, "name": "Зубная щетка Sensodyne Бережный Уход для чувствительных зубов и деликатной чистки", "retail_price": 230, "our_price": 115, "stock": 4, "category": "Уход и гигиена", "img": "images/photo77.jpg"},
-{"id": 78, "name": "Зубная щетка Colgate 360 суперчистота среднй жесткости 1+1 в ассортименте", "retail_price": 380, "our_price": 190, "stock": 1, "category": "Уход и гигиена", "img": "images/photo78.jpg"},
-{"id": 79, "name": "Одноразовый станок для бритья Dorco EVE 4 Disposable женская 4 лезвия 1шт", "retail_price": 180, "our_price": 90, "stock": 5, "category": "Уход и гигиена", "img": "images/photo79.jpg"},
-{"id": 80, "name": "Stellary Skin Studio Гель д/кожи вокруг глаз Hydrogen Ice Hydrating 20мл", "retail_price": 195, "our_price": 97, "stock": 1, "category": "Уход и гигиена", "img": "images/photo80.jpg"},
-{"id": 81, "name": "Прокладки Discreet ежедневные Normal Trio 60шт", "retail_price": 240, "our_price": 120, "stock": 1, "category": "Уход и гигиена", "img": "images/photo81.jpg"},
-{"id": 82, "name": "Чёрная мочалка - шар La Fresh", "retail_price": 150, "our_price": 75, "stock": 2, "category": "Аксессуары", "img": "images/photo82.jpg"}
-
-
-
-
-
-
+  {
+    "id": 1,
+    "name": "Антиперспирант мужской Фа Men Sport",
+    "retail_price": 299,
+    "our_price": 120,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Гель для душа Мужской Фа Men",
+    "retail_price": 299,
+    "our_price": 120,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Шампунь для волос Garnier",
+    "retail_price": 399,
+    "our_price": 200,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Питательный крем Only Bio",
+    "retail_price": 380,
+    "our_price": 190,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo4.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Крем-гель для душа Green Nature",
+    "retail_price": 399,
+    "our_price": 200,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo5.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Концентрат-активатор Pure Line",
+    "retail_price": 249,
+    "our_price": 120,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo6.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Гель-крем Milk",
+    "retail_price": 0,
+    "our_price": 200,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo7.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Шампунь Ecolatier Urban",
+    "retail_price": 550,
+    "our_price": 270,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo8.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Пятновыводитель Synergetic",
+    "retail_price": 450,
+    "our_price": 200,
+    "stock": 4,
+    "category": "Бытовая химия",
+    "img": "images/photo9.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Бальзам для волос Чистая Линия",
+    "retail_price": 250,
+    "our_price": 120,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo10.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Спрей для волос Tresemme",
+    "retail_price": 550,
+    "our_price": 270,
+    "stock": 4,
+    "category": "Уход и гигиена",
+    "img": "images/photo11.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Шампунь Tresemme",
+    "retail_price": 290,
+    "our_price": 140,
+    "stock": 3,
+    "category": "Уход и гигиена",
+    "img": "images/photo12.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Шампунь Дав",
+    "retail_price": 450,
+    "our_price": 200,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo13.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Маска Lador",
+    "retail_price": 950,
+    "our_price": 400,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo14.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Антиперспирант Дав Про-Коллаген",
+    "retail_price": 400,
+    "our_price": 200,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo15.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Крем-мыло Exxe",
+    "retail_price": 100,
+    "our_price": 50,
+    "stock": 3,
+    "category": "Уход и гигиена",
+    "img": "images/photo16.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Бальзам для волос Тоника",
+    "retail_price": 230,
+    "our_price": 110,
+    "stock": 3,
+    "category": "Уход и гигиена",
+    "img": "images/photo17.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Профессиональная маска для волос Sowell Total Repair",
+    "retail_price": 0,
+    "our_price": 240,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo18.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Сыворотка для области вокруг глаз Kumiho Truffle",
+    "retail_price": 790,
+    "our_price": 390,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo19.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Эссенция для лица Kumiho Truffle ",
+    "retail_price": 950,
+    "our_price": 450,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo20.jpg"
+  },
+  {
+    "id": 21,
+    "name": "Пилка LAF",
+    "retail_price": 100,
+    "our_price": 50,
+    "stock": 3,
+    "category": "Аксессуары",
+    "img": "images/photo21.jpg"
+  },
+  {
+    "id": 22,
+    "name": "Cтакан Pasabahce Набор",
+    "retail_price": 960,
+    "our_price": 400,
+    "stock": 1,
+    "category": "Непрофильный товар",
+    "img": "images/photo22.jpg"
+  },
+  {
+    "id": 23,
+    "name": "Мужской дезодорант Deonica",
+    "retail_price": 270,
+    "our_price": 100,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo23.jpg"
+  },
+  {
+    "id": 24,
+    "name": "Ополаскиватель Лесной Бальзам",
+    "retail_price": 200,
+    "our_price": 200,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo24.jpg"
+  },
+  {
+    "id": 25,
+    "name": "Мыло Aura Antibacterial active",
+    "retail_price": 140,
+    "our_price": 70,
+    "stock": 4,
+    "category": "Уход и гигиена",
+    "img": "images/photo25.jpg"
+  },
+  {
+    "id": 26,
+    "name": "Шампунь для волос Natura Siberica",
+    "retail_price": 600,
+    "our_price": 200,
+    "stock": 3,
+    "category": "Уход и гигиена",
+    "img": "images/photo26.jpg"
+  },
+  {
+    "id": 27,
+    "name": "Супербальзам Elseve",
+    "retail_price": 600,
+    "our_price": 250,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo27.jpg"
+  },
+  {
+    "id": 28,
+    "name": "Бальзам для волос Elseve",
+    "retail_price": 500,
+    "our_price": 180,
+    "stock": 3,
+    "category": "Уход и гигиена",
+    "img": "images/photo28.jpg"
+  },
+  {
+    "id": 29,
+    "name": "Туалетная вода Her secret Temptation Antonio Banderas",
+    "retail_price": 3000,
+    "our_price": 1500,
+    "stock": 1,
+    "category": "Парфюмерия",
+    "img": "images/photo29.jpg"
+  },
+  {
+    "id": 30,
+    "name": "Туалетная вода Black Seduction Antonio Banderas",
+    "retail_price": 3500,
+    "our_price": 1800,
+    "stock": 1,
+    "category": "Парфюмерия",
+    "img": "images/photo30.jpg"
+  },
+  {
+    "id": 31,
+    "name": "Парфюмерная вода F010 Equivalent",
+    "retail_price": 2150,
+    "our_price": 1100,
+    "stock": 1,
+    "category": "Парфюмерия",
+    "img": "images/photo31.jpg"
+  },
+  {
+    "id": 32,
+    "name": "Зубная паста Colgate Total 12",
+    "retail_price": 350,
+    "our_price": 130,
+    "stock": 3,
+    "category": "Уход и гигиена",
+    "img": "images/photo32.jpg"
+  },
+  {
+    "id": 33,
+    "name": "Туалетная вода Blue Cobalt Pro-Energy",
+    "retail_price": 370,
+    "our_price": 150,
+    "stock": 1,
+    "category": "Парфюмерия",
+    "img": "images/photo33.jpg"
+  },
+  {
+    "id": 34,
+    "name": "Зубная паста Natusana Whitening",
+    "retail_price": 150,
+    "our_price": 70,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo34.jpg"
+  },
+  {
+    "id": 35,
+    "name": "Кератин-шампунь Likato Professional",
+    "retail_price": 400,
+    "our_price": 200,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo35.jpg"
+  },
+  {
+    "id": 36,
+    "name": "Бальзам оттеночный Палетт Платиновый Блонд",
+    "retail_price": 270,
+    "our_price": 120,
+    "stock": 6,
+    "category": "Уход и гигиена",
+    "img": "images/photo36.jpg"
+  },
+  {
+    "id": 37,
+    "name": "Мыло твердое Dexclusive",
+    "retail_price": 100,
+    "our_price": 50,
+    "stock": 6,
+    "category": "Уход и гигиена",
+    "img": "images/photo37.jpg"
+  },
+  {
+    "id": 38,
+    "name": "Лимфодренажная криомаска Likato Professional",
+    "retail_price": 500,
+    "our_price": 230,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo38.jpg"
+  },
+  {
+    "id": 39,
+    "name": "Бомбочка для ваннFabrik Cosmetology",
+    "retail_price": 140,
+    "our_price": 70,
+    "stock": 3,
+    "category": "Уход и гигиена",
+    "img": "images/photo39.jpg"
+  },
+  {
+    "id": 40,
+    "name": "Дезодорант женский Фа Ритмы острова Бали",
+    "retail_price": 250,
+    "our_price": 120,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo40.jpg"
+  },
+  {
+    "id": 41,
+    "name": "Станок Evolution Pro Zollider 3",
+    "retail_price": 680,
+    "our_price": 340,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo41.jpg"
+  },
+  {
+    "id": 42,
+    "name": "Маска-пленка Compliment Black Mask",
+    "retail_price": 210,
+    "our_price": 100,
+    "stock": 3,
+    "category": "Уход и гигиена",
+    "img": "images/photo42.jpg"
+  },
+  {
+    "id": 43,
+    "name": "Гель+скраб+маска",
+    "retail_price": 250,
+    "our_price": 120,
+    "stock": 4,
+    "category": "Уход и гигиена",
+    "img": "images/photo43.jpg"
+  },
+  {
+    "id": 44,
+    "name": "Пилинг-скатка Compliment",
+    "retail_price": 170,
+    "our_price": 80,
+    "stock": 4,
+    "category": "Уход и гигиена",
+    "img": "images/photo44.jpg"
+  },
+  {
+    "id": 45,
+    "name": "Скраб для тела La Fresh",
+    "retail_price": 240,
+    "our_price": 120,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo45.jpg"
+  },
+  {
+    "id": 46,
+    "name": "Гель-пенка Чистая Линия",
+    "retail_price": 270,
+    "our_price": 130,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo46.jpg"
+  },
+  {
+    "id": 47,
+    "name": "Крем-уход Чистая линия",
+    "retail_price": 120,
+    "our_price": 60,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo47.jpg"
+  },
+  {
+    "id": 48,
+    "name": "Ночной крем для лица Mixit Lab",
+    "retail_price": 439,
+    "our_price": 180,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo48.jpg"
+  },
+  {
+    "id": 49,
+    "name": "Крем для лица Aravia Laboratories с гиалуроновой кислотой 50мл",
+    "retail_price": 400,
+    "our_price": 200,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo49.jpg"
+  },
+  {
+    "id": 50,
+    "name": "Выравнивающая пилинг-скатка для лица Черный жемчуг 120мл",
+    "retail_price": 500,
+    "our_price": 250,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo50.jpg"
+  },
+  {
+    "id": 51,
+    "name": "Сыворотка для лица Aravia Laboratories лифтинг комплекс 30мл",
+    "retail_price": 550,
+    "our_price": 275,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo51.jpg"
+  },
+  {
+    "id": 52,
+    "name": "Крем для лица Aravia Laboratories с пептидами 50мл",
+    "retail_price": 500,
+    "our_price": 250,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo52.jpg"
+  },
+  {
+    "id": 53,
+    "name": "ВВ-крем для лица Garnier Гиалуроновый Алоэ-уход 5-в-1 для нормальной кожи с гиалуроновой кислотой алоэ вера и минеральными пигментами увлажняющий SPF20 50мл",
+    "retail_price": 1000,
+    "our_price": 500,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo53.jpg"
+  },
+  {
+    "id": 54,
+    "name": "Крем для рук Бархатные ручки для всей семьи 200мл",
+    "retail_price": 270,
+    "our_price": 135,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo54.jpg"
+  },
+  {
+    "id": 55,
+    "name": "Маска для лица Planeta Organica Eco увлажняющая  100мл",
+    "retail_price": 200,
+    "our_price": 100,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo55.jpg"
+  },
+  {
+    "id": 56,
+    "name": "Маска - экспресс для лица Банька Агафьи Освежающая 100мл",
+    "retail_price": 200,
+    "our_price": 100,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo56.jpg"
+  },
+  {
+    "id": 57,
+    "name": "Женский дезодорант DA/MS спрей La Fresh 150 мл",
+    "retail_price": 220,
+    "our_price": 110,
+    "stock": 4,
+    "category": "Уход и гигиена",
+    "img": "images/photo57.jpg"
+  },
+  {
+    "id": 58,
+    "name": "Мыло BioMio натуральное Манго 90г",
+    "retail_price": 140,
+    "our_price": 70,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo58.jpg"
+  },
+  {
+    "id": 59,
+    "name": "Сыворотка для лица Невская косметика омолаживающая женьшень 35мл",
+    "retail_price": 190,
+    "our_price": 95,
+    "stock": 3,
+    "category": "Уход и гигиена",
+    "img": "images/photo59.jpg"
+  },
+  {
+    "id": 60,
+    "name": "Гель от прыщей Beauty Bomb Acne fighter точечный 15мл",
+    "retail_price": 230,
+    "our_price": 115,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo60.jpg"
+  },
+  {
+    "id": 61,
+    "name": "Краска для волос Only Bio Color тон 6.0 Натуральный русый 115мл",
+    "retail_price": 210,
+    "our_price": 105,
+    "stock": 5,
+    "category": "Уход и гигиена",
+    "img": "images/photo61.jpg"
+  },
+  {
+    "id": 62,
+    "name": "Ватные палочки Моя цена 400шт",
+    "retail_price": 100,
+    "our_price": 50,
+    "stock": 3,
+    "category": "Уход и гигиена",
+    "img": "images/photo62.jpg"
+  },
+  {
+    "id": 63,
+    "name": "Лак для волос Тафт Power для укладки Невидимая фиксация Мегафиксация 225мл",
+    "retail_price": 450,
+    "our_price": 225,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo63.jpg"
+  },
+  {
+    "id": 64,
+    "name": "Пенка для лица Mixit Очищающая с мочевиной и гиалуроновой кислотой 200мл",
+    "retail_price": 550,
+    "our_price": 275,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo64.jpg"
+  },
+  {
+    "id": 65,
+    "name": "Лосьон после бритья Forx Men Care 100мл",
+    "retail_price": 400,
+    "our_price": 200,
+    "stock": 4,
+    "category": "Уход и гигиена",
+    "img": "images/photo65.jpg"
+  },
+  {
+    "id": 66,
+    "name": "Мицелярная вода 3в1 Чистая Линия 100мл",
+    "retail_price": 200,
+    "our_price": 100,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo66.jpg"
+  },
+  {
+    "id": 67,
+    "name": "Сменные кассеты для бритвы Gillette Labs 4шт",
+    "retail_price": 4000,
+    "our_price": 2000,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo67.jpg"
+  },
+  {
+    "id": 68,
+    "name": "Шампунь и бальзам - ополаскиватель Head&Shoulders 400мл",
+    "retail_price": 700,
+    "our_price": 350,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo68.jpg"
+  },
+  {
+    "id": 69,
+    "name": "Гель-уход для душа Крем и кокос NIVEA 250мл",
+    "retail_price": 320,
+    "our_price": 160,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo69.jpg"
+  },
+  {
+    "id": 70,
+    "name": "Крем-мыло для лица и тела Duru Cream Bar 90г",
+    "retail_price": 100,
+    "our_price": 50,
+    "stock": 2,
+    "category": "Уход и гигиена",
+    "img": "images/photo70.jpg"
+  },
+  {
+    "id": 71,
+    "name": "Энзимная пудра Likato Professional 120г",
+    "retail_price": 600,
+    "our_price": 300,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo71.jpg"
+  },
+  {
+    "id": 72,
+    "name": "Скраб для тела Organic Shop Энзимный Sunny Papaya 300г",
+    "retail_price": 360,
+    "our_price": 180,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo72.jpg"
+  },
+  {
+    "id": 73,
+    "name": "Спрей восстановление Compliment ArganOil&Ceramides 200мл",
+    "retail_price": 340,
+    "our_price": 170,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo73.jpg"
+  },
+  {
+    "id": 74,
+    "name": "Пенка для умывания Natura Siberica Lab Biome суперувлажняющая 150мл",
+    "retail_price": 400,
+    "our_price": 200,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo74.jpg"
+  },
+  {
+    "id": 75,
+    "name": "Энзимная пудра для умывания Stellary Skin Studio Hydrogen",
+    "retail_price": 400,
+    "our_price": 200,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo75.jpg"
+  },
+  {
+    "id": 76,
+    "name": "Гель для душа и шампунь Акс 3в1 Эпик Фреш 250мл",
+    "retail_price": 420,
+    "our_price": 210,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo76.jpg"
+  },
+  {
+    "id": 77,
+    "name": "Зубная щетка Sensodyne Бережный Уход для чувствительных зубов и деликатной чистки",
+    "retail_price": 230,
+    "our_price": 115,
+    "stock": 4,
+    "category": "Уход и гигиена",
+    "img": "images/photo77.jpg"
+  },
+  {
+    "id": 78,
+    "name": "Зубная щетка Colgate 360 суперчистота среднй жесткости 1+1 в ассортименте",
+    "retail_price": 380,
+    "our_price": 190,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo78.jpg"
+  },
+  {
+    "id": 79,
+    "name": "Одноразовый станок для бритья Dorco EVE 4 Disposable женская 4 лезвия 1шт",
+    "retail_price": 180,
+    "our_price": 90,
+    "stock": 5,
+    "category": "Уход и гигиена",
+    "img": "images/photo79.jpg"
+  },
+  {
+    "id": 80,
+    "name": "Stellary Skin Studio Гель д/кожи вокруг глаз Hydrogen Ice Hydrating 20мл",
+    "retail_price": 195,
+    "our_price": 97,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo80.jpg"
+  },
+  {
+    "id": 81,
+    "name": "Прокладки Discreet ежедневные Normal Trio 60шт",
+    "retail_price": 240,
+    "our_price": 120,
+    "stock": 1,
+    "category": "Уход и гигиена",
+    "img": "images/photo81.jpg"
+  },
+  {
+    "id": 82,
+    "name": "Чёрная мочалка - шар La Fresh",
+    "retail_price": 150,
+    "our_price": 75,
+    "stock": 2,
+    "category": "Аксессуары",
+    "img": "images/photo82.jpg"
+  }
 ]
