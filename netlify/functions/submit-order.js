@@ -1,7 +1,4 @@
-const fetch = require('node-fetch');
-
 exports.handler = async (event, context) => {
-  // Только POST запросы
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
@@ -9,10 +6,10 @@ exports.handler = async (event, context) => {
   const data = JSON.parse(event.body);
   const { name, surname, telegram, phone, items } = data;
 
-  // 🔧 ЗАМЕНИ НА СВОИ ДАННЫЕ
+  // 🔧 Убедись, что эти данные верные!
   const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-  const OWNER = 'HouseholderLife'; // твой ник на GitHub
-  const REPO = 'householderShop';  // название репозитория
+  const OWNER = 'HouseholderLife'; // Твой ник на GitHub
+  const REPO = 'householderShop';  // Название репозитория
   const FORMSPREE_ENDPOINT = 'https://formspree.io/f/maqaayzq';
 
   try {
@@ -34,15 +31,12 @@ exports.handler = async (event, context) => {
     const updatedProducts = products.map(product => {
       const cartItem = items.find(item => item.id === product.id);
       if (cartItem) {
-        return {
-          ...product,
-          stock: Math.max(0, product.stock - cartItem.qty)
-        };
+        return { ...product, stock: Math.max(0, product.stock - cartItem.qty) };
       }
       return product;
     });
 
-    // 3. Отправляем обновлённый products.json обратно в GitHub
+    // 3. Отправляем обновлённый файл обратно в GitHub
     const updateFileRes = await fetch(
       `https://api.github.com/repos/${OWNER}/${REPO}/contents/products.json`,
       {
@@ -60,18 +54,15 @@ exports.handler = async (event, context) => {
       }
     );
 
-    if (!updateFileRes.ok) {
-      throw new Error('Failed to update products.json');
-    }
+    if (!updateFileRes.ok) throw new Error('Failed to update products.json');
 
     // 4. Отправляем письмо через Formspree
-    let orderText = `🛒 НОВЫЙ ЗАКАЗ\n\n`;
-    orderText += `👤 Имя: ${name}\n`;
+    let orderText = `🛒 НОВЫЙ ЗАКАЗ\n\n👤 Имя: ${name}\n`;
     if (surname) orderText += `Фамилия: ${surname}\n`;
     if (telegram) orderText += `✈️ Telegram: ${telegram}\n`;
     if (phone) orderText += `📞 Телефон: ${phone}\n`;
     orderText += `\n📦 ТОВАРЫ:\n`;
-    
+
     let total = 0;
     items.forEach(item => {
       const sum = item.price * item.qty;
@@ -91,24 +82,17 @@ exports.handler = async (event, context) => {
       })
     });
 
-    // 5. Успех!
+    // 5. Успех
     return {
       statusCode: 200,
-      body: JSON.stringify({ 
-        success: true, 
-        message: 'Order processed successfully',
-        stockUpdated: true
-      })
+      body: JSON.stringify({ success: true, message: 'Order processed' })
     };
 
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Function Error:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ 
-        success: false, 
-        error: error.message 
-      })
+      body: JSON.stringify({ success: false, error: error.message })
     };
   }
 };
