@@ -22,6 +22,36 @@
     .qty-input { width: 2.5rem; text-align: center; background: transparent; border: none; color: white; font-size: 0.9rem; font-weight: 500; -moz-appearance: textfield; padding: 0; }
     .qty-input::-webkit-outer-spin-button, .qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
     .cat-btn.active { background: #10b981 !important; color: #064e3b !important; border-color: #34d399 !important; font-weight: bold; }
+    
+    /* Toast уведомление */
+    #toast {
+      visibility: hidden;
+      min-width: 250px;
+      background: #10b981;
+      color: #064e3b;
+      text-align: center;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      position: fixed;
+      z-index: 200;
+      right: 20px;
+      bottom: 20px;
+      font-weight: 500;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    #toast.show {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+      animation: fadeout 0.5s 2.5s forwards;
+    }
+    @keyframes fadeout {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(20px); }
+    }
   </style>
 </head>
 <body class="bg-black text-gray-100 font-sans antialiased">
@@ -29,8 +59,6 @@
 <!-- ШАПКА -->
 <header class="bg-gray-900 border-b border-gray-800 sticky top-0 z-50 shadow-xl">
   <div class="max-w-6xl mx-auto px-3 py-2 flex items-center gap-2">
-    
-    <!-- 1. Категории (скролл, занимает всё свободное место) -->
     <nav class="flex-1 overflow-x-auto whitespace-nowrap flex gap-2 no-scrollbar py-1">
       <button onclick="filterCategory('all', this)" class="cat-btn active bg-emerald-500 hover:bg-emerald-400 text-gray-900 px-3 py-1.5 rounded-md whitespace-nowrap transition text-sm font-medium border border-emerald-400">Все</button>
       <button onclick="filterCategory('Уход и гигиена', this)" class="cat-btn bg-gray-800 hover:bg-gray-700 text-gray-300 px-3 py-1.5 rounded-md whitespace-nowrap transition text-sm font-medium border border-gray-700">Уход и гигиена</button>
@@ -40,16 +68,12 @@
       <button onclick="filterCategory('Аксессуары', this)" class="cat-btn bg-gray-800 hover:bg-gray-700 text-gray-300 px-3 py-1.5 rounded-md whitespace-nowrap transition text-sm font-medium border border-gray-700">Аксессуары</button>
       <button onclick="filterCategory('Бытовая химия', this)" class="cat-btn bg-gray-800 hover:bg-gray-700 text-gray-300 px-3 py-1.5 rounded-md whitespace-nowrap transition text-sm font-medium border border-gray-700">Бытовая химия</button>
     </nav>
-
-    <!-- 2. Поиск (строго между категориями и корзиной) -->
     <div class="relative w-28 sm:w-36 md:w-48 shrink-0">
       <div class="absolute inset-y-0 left-0 flex items-center pl-2 pointer-events-none">
         <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
       </div>
       <input type="text" id="searchInput" placeholder="Поиск..." class="block w-full p-2 pl-8 text-sm text-white border border-gray-700 rounded-lg bg-gray-800 focus:ring-emerald-500 focus:border-emerald-500 placeholder-gray-500">
     </div>
-
-    <!-- 3. Корзина -->
     <button onclick="openCart()" class="relative p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition shrink-0 border border-gray-700">
       <span class="text-xl">🛒</span>
       <span id="cartBadge" class="absolute -top-1 -right-1 bg-emerald-500 text-black text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden min-w-[18px] text-center">0</span>
@@ -63,10 +87,7 @@
     <p class="text-gray-400 mt-4 text-sm">Загрузка товаров...</p>
   </div>
   <div id="productsGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 hidden"></div>
-  
-  <!-- ПАГИНАЦИЯ -->
   <div id="pagination" class="mt-8 mb-10 flex justify-center items-center gap-2 flex-wrap"></div>
-  
   <div id="error" class="text-center text-red-400 py-10 hidden">
     <p class="text-lg">⚠️ Не удалось загрузить товары</p>
     <p class="text-sm text-gray-500 mt-2">Проверьте файл products.json</p>
@@ -92,18 +113,48 @@
     <button onclick="closeCheckout()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition">&times;</button>
     <h2 class="text-xl font-bold text-white mb-6 border-b border-gray-800 pb-3">Оформление</h2>
     <form id="orderForm" class="space-y-4">
-      <div><label class="block text-xs text-gray-400 mb-1 ml-1">Имя *</label><input type="text" name="name" placeholder="Как к вам обращаться?" required class="w-full px-4 py-3 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 transition"></div>
+      <!-- Имя и Фамилия в одну строку -->
       <div class="grid grid-cols-2 gap-4">
-        <div><label class="block text-xs text-gray-400 mb-1 ml-1">Телефон</label><input type="tel" name="phone" placeholder="+7 (999)..." class="w-full px-4 py-3 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 transition"></div>
-        <div><label class="block text-xs text-gray-400 mb-1 ml-1">Telegram</label><input type="text" name="telegram" placeholder="@username" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 transition"></div>
+        <div>
+          <label class="block text-xs text-gray-400 mb-1 ml-1">Имя *</label>
+          <input type="text" name="name" placeholder="Ваше имя" required 
+                 class="w-full px-4 py-3 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 transition">
+        </div>
+        <div>
+          <label class="block text-xs text-gray-400 mb-1 ml-1">Фамилия</label>
+          <input type="text" name="surname" placeholder="Необязательно" 
+                 class="w-full px-4 py-3 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 transition">
+        </div>
       </div>
-      <input type="text" name="surname" placeholder="Фамилия (необязательно)" class="w-full px-4 py-3 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 transition">
+      
+      <!-- Telegram (обязательно) -->
+      <div>
+        <label class="block text-xs text-gray-400 mb-1 ml-1">Telegram *</label>
+        <input type="text" name="telegram" placeholder="@username" required 
+               class="w-full px-4 py-3 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 transition">
+      </div>
+      
+      <!-- Телефон (необязательно) -->
+      <div>
+        <label class="block text-xs text-gray-400 mb-1 ml-1">Телефон</label>
+        <input type="tel" name="phone" placeholder="+7 (999) 000-00-00" 
+               class="w-full px-4 py-3 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 transition">
+      </div>
+      
+      <!-- Honeypot от ботов -->
       <input type="text" name="website" class="hidden opacity-0 absolute" tabindex="-1" autocomplete="off">
-      <button type="submit" id="submitBtn" class="w-full bg-emerald-500 hover:bg-emerald-400 text-gray-900 py-3.5 rounded-lg font-bold transition mt-2">Оформить заказ</button>
+      
+      <!-- Кнопка -->
+      <button type="submit" id="submitBtn" class="w-full bg-emerald-500 hover:bg-emerald-400 text-gray-900 py-3.5 rounded-lg font-bold transition mt-2">
+        Оформить заказ
+      </button>
     </form>
     <p id="formStatus" class="mt-3 text-sm text-center hidden font-medium"></p>
   </div>
 </div>
+
+<!-- Toast уведомление -->
+<div id="toast">✅ Заказ оформлен!</div>
 
 <script>
 let products = [];
@@ -113,7 +164,6 @@ let currentPage = 1;
 let searchQuery = "";
 const itemsPerPage = 20;
 
-// Слушаем ввод в поиске
 document.getElementById('searchInput').addEventListener('input', (e) => {
     searchQuery = e.target.value.toLowerCase().trim();
     currentPage = 1;
@@ -137,11 +187,7 @@ async function loadProducts() {
 
 function renderProducts() {
   const grid = document.getElementById('productsGrid');
-  
-  // 1. Фильтр по категории
   let filtered = currentCategory === 'all' ? products : products.filter(p => p.category === currentCategory);
-
-  // 2. Фильтр по поиску (только по названию)
   if (searchQuery) {
       filtered = filtered.filter(p => p.name.toLowerCase().includes(searchQuery));
   }
@@ -154,7 +200,6 @@ function renderProducts() {
 
   const totalPages = Math.ceil(filtered.length / itemsPerPage);
   if (currentPage > totalPages) currentPage = 1;
-
   const start = (currentPage - 1) * itemsPerPage;
   const end = start + itemsPerPage;
   const pageItems = filtered.slice(start, end);
@@ -192,30 +237,25 @@ function renderProducts() {
       </div>
     </div>`;
   }).join('');
-
   renderPagination(totalPages);
 }
 
 function renderPagination(totalPages) {
   const container = document.getElementById('pagination');
   if (totalPages <= 1) { container.innerHTML = ''; return; }
-
   let html = '';
   let startPage = Math.max(1, currentPage - 2);
   let endPage = Math.min(totalPages, currentPage + 2);
-
   if (startPage > 1) {
     html += `<button onclick="changePage(1)" class="px-3 py-1.5 rounded-md text-sm bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-700 transition">1</button>`;
     if (startPage > 2) html += `<span class="text-gray-500 px-1">…</span>`;
   }
-  
   for (let i = startPage; i <= endPage; i++) {
     const activeClass = i === currentPage 
       ? "bg-emerald-500 text-gray-900 font-bold border border-emerald-400" 
       : "bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-700";
     html += `<button onclick="changePage(${i})" class="px-3 py-1.5 rounded-md text-sm transition select-none ${activeClass}">${i}</button>`;
   }
-  
   if (endPage < totalPages) {
     if (endPage < totalPages - 1) html += `<span class="text-gray-500 px-1">…</span>`;
     html += `<button onclick="changePage(${totalPages})" class="px-3 py-1.5 rounded-md text-sm bg-gray-800 text-gray-300 hover:bg-gray-700 border border-gray-700 transition">${totalPages}</button>`;
@@ -226,7 +266,6 @@ function renderPagination(totalPages) {
 function changePage(page) {
   const filtered = currentCategory === 'all' ? products : products.filter(p => p.category === currentCategory);
   const finalFiltered = searchQuery ? filtered.filter(p => p.name.toLowerCase().includes(searchQuery)) : filtered;
-  
   const totalPages = Math.ceil(finalFiltered.length / itemsPerPage);
   if (page < 1 || page > totalPages) return;
   currentPage = page;
@@ -287,31 +326,45 @@ function removeFromCart(id) { cart = cart.filter(i => i.id !== id); saveCart(); 
 function openCheckout() { closeCart(); document.getElementById('checkoutModal').classList.add('active'); }
 function closeCheckout() { document.getElementById('checkoutModal').classList.remove('active'); }
 
+// 🟢 ИСПРАВЛЕННАЯ ОТПРАВКА ЗАКАЗА (напрямую на Formspree)
 document.getElementById('orderForm').addEventListener('submit', function(e) {
   e.preventDefault();
   
   const btn = document.getElementById('submitBtn');
   const formData = new FormData(this);
   
-  btn.disabled = true;
-  btn.textContent = 'Обработка...';
+  // Собираем текст заказа
+  let orderText = `🛒 НОВЫЙ ЗАКАЗ\n\n👤 Имя: ${formData.get('name')}\n`;
+  if (formData.get('surname')) orderText += `Фамилия: ${formData.get('surname')}\n`;
+  if (formData.get('telegram')) orderText += `✈️ Telegram: ${formData.get('telegram')}\n`;
+  if (formData.get('phone')) orderText += `📞 Телефон: ${formData.get('phone')}\n`;
   
-  // Отправляем в Netlify Function
-  fetch('/.netlify/functions/submit-order', {
+  orderText += `\n📦 ТОВАРЫ:\n`;
+  cart.forEach(item => {
+    orderText += `• ${item.name} × ${item.qty} = ${item.price * item.qty} ₽\n`;
+  });
+  const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+  orderText += `\n💰 ИТОГО: ${total} ₽`;
+  
+  btn.disabled = true;
+  btn.textContent = 'Отправка...';
+  
+  // Отправляем НАПРЯМУЮ на Formspree
+  fetch('https://formspree.io/f/maqaayzq', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
     body: JSON.stringify({
       name: formData.get('name'),
       surname: formData.get('surname'),
       telegram: formData.get('telegram'),
       phone: formData.get('phone'),
-      items: cart
+      message: orderText,
+      _captcha: 'false',
+      _template: 'raw'
     })
   })
-  .then(async response => {
-    const data = await response.json();
-    
-    if (response.ok && data.success) {
+  .then(response => {
+    if (response.ok) {
       // Очищаем корзину
       cart = [];
       localStorage.removeItem('shopCart');
@@ -319,14 +372,9 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
       closeCheckout();
       
       // Показываем toast
-      showToast('✅ Заказ оформлен! Остатки обновлены.');
-      
-      // Перезагружаем товары с сервера (чтобы увидеть новые остатки)
-      setTimeout(() => {
-        loadProducts();
-      }, 1000);
+      showToast('✅ Заказ оформлен!');
     } else {
-      throw new Error(data.error || 'Ошибка отправки');
+      throw new Error('Ошибка отправки');
     }
   })
   .catch(error => {
@@ -339,12 +387,23 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
   });
 });
 
+// Функция показа toast-уведомления
+function showToast(message = '✅ Заказ оформлен!', bgColor = '#10b981', textColor = '#064e3b') {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.style.background = bgColor;
+  toast.style.color = textColor;
+  toast.className = 'show';
+  setTimeout(() => {
+    toast.className = toast.className.replace('show', '');
+  }, 3000);
+}
+
 function filterCategory(cat, btn) {
   currentCategory = cat;
   currentPage = 1;
   searchQuery = "";
   document.getElementById('searchInput').value = "";
-  
   document.querySelectorAll('.cat-btn').forEach(b => {
     b.classList.remove('active', 'bg-emerald-500', 'text-gray-900', 'border-emerald-400');
     b.classList.add('bg-gray-800', 'border-gray-700', 'text-gray-300');
