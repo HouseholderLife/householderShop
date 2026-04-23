@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Каталог товаров</title>
+  
+  <!-- 🔥 Принудительный сброс кэша HTML-страницы -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .cart-badge { position: absolute; top: -5px; right: -5px; background: #10b981; color: #064e3b; border-radius: 9999px; font-size: 0.7rem; width: 1.2rem; height: 1.2rem; display: flex; align-items: center; justify-content: center; font-weight: bold; }
@@ -113,7 +119,6 @@
     <button onclick="closeCheckout()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition">&times;</button>
     <h2 class="text-xl font-bold text-white mb-6 border-b border-gray-800 pb-3">Оформление</h2>
     <form id="orderForm" class="space-y-4">
-      <!-- Имя и Фамилия в одну строку -->
       <div class="grid grid-cols-2 gap-4">
         <div>
           <label class="block text-xs text-gray-400 mb-1 ml-1">Имя *</label>
@@ -126,25 +131,17 @@
                  class="w-full px-4 py-3 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 transition">
         </div>
       </div>
-      
-      <!-- Telegram (обязательно) -->
       <div>
         <label class="block text-xs text-gray-400 mb-1 ml-1">Telegram *</label>
         <input type="text" name="telegram" placeholder="@username" required 
                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 transition">
       </div>
-      
-      <!-- Телефон (необязательно) -->
       <div>
         <label class="block text-xs text-gray-400 mb-1 ml-1">Телефон</label>
         <input type="tel" name="phone" placeholder="+7 (999) 000-00-00" 
                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 transition">
       </div>
-      
-      <!-- Honeypot от ботов -->
       <input type="text" name="website" class="hidden opacity-0 absolute" tabindex="-1" autocomplete="off">
-      
-      <!-- Кнопка -->
       <button type="submit" id="submitBtn" class="w-full bg-emerald-500 hover:bg-emerald-400 text-gray-900 py-3.5 rounded-lg font-bold transition mt-2">
         Оформить заказ
       </button>
@@ -172,6 +169,7 @@ document.getElementById('searchInput').addEventListener('input', (e) => {
 
 async function loadProducts() {
   try {
+    // ?v=Date.now() гарантирует загрузку свежих данных каждый раз
     const res = await fetch('products.json?v=' + Date.now());
     if (!res.ok) throw new Error('HTTP ' + res.status);
     products = await res.json();
@@ -333,7 +331,6 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
   const btn = document.getElementById('submitBtn');
   const formData = new FormData(this);
   
-  // Собираем текст заказа
   let orderText = `🛒 НОВЫЙ ЗАКАЗ\n\n👤 Имя: ${formData.get('name')}\n`;
   if (formData.get('surname')) orderText += `Фамилия: ${formData.get('surname')}\n`;
   if (formData.get('telegram')) orderText += `✈️ Telegram: ${formData.get('telegram')}\n`;
@@ -349,7 +346,6 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
   btn.disabled = true;
   btn.textContent = 'Отправка...';
   
-  // Отправляем НАПРЯМУЮ на Formspree
   fetch('https://formspree.io/f/maqaayzq', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -365,13 +361,10 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
   })
   .then(response => {
     if (response.ok) {
-      // Очищаем корзину
       cart = [];
       localStorage.removeItem('shopCart');
       updateBadge();
       closeCheckout();
-      
-      // Показываем toast
       showToast('✅ Заказ оформлен!');
     } else {
       throw new Error('Ошибка отправки');
@@ -387,7 +380,6 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
   });
 });
 
-// Функция показа toast-уведомления
 function showToast(message = '✅ Заказ оформлен!', bgColor = '#10b981', textColor = '#064e3b') {
   const toast = document.getElementById('toast');
   toast.textContent = message;
@@ -411,6 +403,14 @@ function filterCategory(cat, btn) {
   btn.classList.add('active', 'bg-emerald-500', 'text-gray-900', 'border-emerald-400');
   btn.classList.remove('bg-gray-800', 'border-gray-700', 'text-gray-300');
   renderProducts();
+}
+
+// 🔄 АВТОСБРОС КЭША ПРИ ОБНОВЛЕНИИ ФАЙЛА
+// 👇🏼 МЕНЯЙ ЭТУ ЦИФРУ КАЖДЫЙ РАЗ, КОГДА РЕДАКТИРУЕШЬ index.html
+const APP_VERSION = '1.1.0'; 
+if (localStorage.getItem('shopVersion') !== APP_VERSION) {
+  localStorage.setItem('shopVersion', APP_VERSION);
+  window.location.href = window.location.href.split('?')[0] + '?v=' + Date.now();
 }
 
 loadProducts();
