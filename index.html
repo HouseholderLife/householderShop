@@ -287,51 +287,66 @@ function removeFromCart(id) { cart = cart.filter(i => i.id !== id); saveCart(); 
 function openCheckout() { closeCart(); document.getElementById('checkoutModal').classList.add('active'); }
 function closeCheckout() { document.getElementById('checkoutModal').classList.remove('active'); }
 
-document.getElementById('orderForm').addEventListener('submit', async (e) => {
+document.getElementById('orderForm').addEventListener('submit', function(e) {
   e.preventDefault();
+  
   const btn = document.getElementById('submitBtn');
-  const status = document.getElementById('formStatus');
-  const fd = new FormData(e.target);
+  const formData = new FormData(this);
   
-  if (fd.get('website')) return; // honeypot
+  // Собираем данные заказа
+  let orderText = `🛒 НОВЫЙ ЗАКАЗ\n\n`;
+  orderText += `👤 Имя: ${formData.get('name')}\n`;
+  if (formData.get('phone')) orderText += `📞 Телефон: ${formData.get('phone')}\n`;
+  if (formData.get('telegram')) orderText += `✈️ Telegram: ${formData.get('telegram')}\n`;
+  if (formData.get('surname')) orderText += `Фамилия: ${formData.get('surname')}\n`;
   
+  orderText += `\n📦 ТОВАРЫ:\n`;
+  cart.forEach(item => {
+    orderText += `• ${item.name} × ${item.qty} = ${item.price * item.qty} ₽\n`;
+  });
+  
+  const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+  orderText += `\n💰 ИТОГО: ${total} ₽`;
+  
+  // Отправляем через FormSubmit
   btn.disabled = true;
   btn.textContent = 'Отправка...';
-  status.classList.add('hidden');
   
-  const payload = { 
-    name: fd.get('name'), 
-    phone: fd.get('phone'), 
-    telegram: fd.get('telegram'), 
-    surname: fd.get('surname'), 
-    items: cart,
-    _captcha: 'false',      // отключаем капчу Formsubmit
-    _template: 'table'      // красивая таблица в письме
-  };
-  
-  try {
-    // ⚠️ ЗАМЕНИ your@email.com НА СВОЮ ПОЧТУ
-    const res = await fetch('https://formsubmit.co/ajax/d.eremin1002@gmail.com', { 
-      method: 'POST', 
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, 
-      body: JSON.stringify(payload) 
-    });
-    const data = await res.json();
-    if (data.success) {
+  fetch('https://formspree.io/f/maqaayzq', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      name: formData.get('name'),
+      phone: formData.get('phone'),
+      telegram: formData.get('telegram'),
+      surname: formData.get('surname'),
+      message: orderText,
+      _captcha: 'false',
+      _template: 'raw'
+    })
+  })
+  .then(response => {
+    if (response.ok) {
       cart = [];
       localStorage.removeItem('shopCart');
       updateBadge();
-      closeCheckout();
-      alert('✅ Заказ отправлен! Проверьте почту для подтверждения (первый раз).');
-    } else throw new Error('Ошибка сервиса');
-  } catch (err) {
-    status.textContent = '❌ Ошибка отправки. Попробуйте позже.';
-    status.classList.remove('hidden');
-    status.classList.add('text-red-400');
-  } finally {
+      document.getElementById('checkoutModal').classList.remove('active');
+      alert('✅ Заказ отправлен!');
+    } else {
+      throw new Error('Ошибка');
+    }
+  })
+  .catch(error => {
+    alert('❌ Ошибка отправки. Попробуйте позже или напишите нам напрямую.');
+    console.error('Error:', error);
+  })
+  .finally(() => {
     btn.disabled = false;
     btn.textContent = 'Отправить заказ';
-  }
+  });
 });
 
 function filterCategory(cat, btn) {
