@@ -29,34 +29,32 @@
     .qty-input::-webkit-outer-spin-button, .qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
     .cat-btn.active { background: #10b981 !important; color: #064e3b !important; border-color: #34d399 !important; font-weight: bold; }
     
-    /* Toast уведомление */
+    /* 🟢 ИСПРАВЛЕННОЕ УВЕДОМЛЕНИЕ (TOAST) */
     #toast {
       visibility: hidden;
-      min-width: 250px;
-      background: #10b981;
-      color: #064e3b;
+      min-width: 320px;
+      background: linear-gradient(135deg, #10b981, #047857);
+      color: #ffffff;
       text-align: center;
-      border-radius: 0.5rem;
-      padding: 1rem;
+      border-radius: 12px;
+      padding: 18px 24px;
       position: fixed;
-      z-index: 200;
-      right: 20px;
-      bottom: 20px;
-      font-weight: 500;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+      left: 50%;
+      bottom: 40px;
+      transform: translateX(-50%) translateY(20px);
+      font-size: 1.05rem;
+      font-weight: 600;
+      box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4), 0 4px 12px rgba(0,0,0,0.3);
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.3s, transform 0.3s;
+      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+      pointer-events: none;
     }
     #toast.show {
       visibility: visible;
       opacity: 1;
-      transform: translateY(0);
-      animation: fadeout 0.5s 2.5s forwards;
-    }
-    @keyframes fadeout {
-      from { opacity: 1; transform: translateY(0); }
-      to { opacity: 0; transform: translateY(20px); }
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
     }
   </style>
 </head>
@@ -151,7 +149,7 @@
 </div>
 
 <!-- Toast уведомление -->
-<div id="toast">✅ Заказ оформлен!</div>
+<div id="toast">✅ Заказ успешно оформлен!</div>
 
 <script>
 let products = [];
@@ -169,7 +167,6 @@ document.getElementById('searchInput').addEventListener('input', (e) => {
 
 async function loadProducts() {
   try {
-    // ?v=Date.now() гарантирует загрузку свежих данных каждый раз
     const res = await fetch('products.json?v=' + Date.now());
     if (!res.ok) throw new Error('HTTP ' + res.status);
     products = await res.json();
@@ -324,7 +321,7 @@ function removeFromCart(id) { cart = cart.filter(i => i.id !== id); saveCart(); 
 function openCheckout() { closeCart(); document.getElementById('checkoutModal').classList.add('active'); }
 function closeCheckout() { document.getElementById('checkoutModal').classList.remove('active'); }
 
-// 🟢 ИСПРАВЛЕННАЯ ОТПРАВКА ЗАКАЗА (напрямую на Formspree)
+// 🟢 ОТПРАВКА ЗАКАЗА
 document.getElementById('orderForm').addEventListener('submit', function(e) {
   e.preventDefault();
   
@@ -365,14 +362,14 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
       localStorage.removeItem('shopCart');
       updateBadge();
       closeCheckout();
-      showToast('✅ Заказ оформлен!');
+      showToast('✅ Заказ успешно оформлен! Мы свяжемся с вами.');
     } else {
       throw new Error('Ошибка отправки');
     }
   })
   .catch(error => {
     console.error('Error:', error);
-    showToast('❌ Ошибка. Попробуйте позже.', '#ef4444', '#fee2e2');
+    showToast('❌ Ошибка отправки. Попробуйте позже.', '#ef4444', '#ffffff');
   })
   .finally(() => {
     btn.disabled = false;
@@ -380,15 +377,19 @@ document.getElementById('orderForm').addEventListener('submit', function(e) {
   });
 });
 
-function showToast(message = '✅ Заказ оформлен!', bgColor = '#10b981', textColor = '#064e3b') {
+// 🟢 ФУНКЦИЯ ПОКАЗА УВЕДОМЛЕНИЯ
+function showToast(message = '✅ Заказ успешно оформлен!', bgColorStart = '#10b981', bgColorEnd = '#047857', textColor = '#ffffff') {
   const toast = document.getElementById('toast');
   toast.textContent = message;
-  toast.style.background = bgColor;
+  toast.style.background = `linear-gradient(135deg, ${bgColorStart}, ${bgColorEnd})`;
   toast.style.color = textColor;
-  toast.className = 'show';
+  
+  toast.classList.add('show');
+  
+  // Плавное скрытие через 4.5 секунды
   setTimeout(() => {
-    toast.className = toast.className.replace('show', '');
-  }, 3000);
+    toast.classList.remove('show');
+  }, 4500);
 }
 
 function filterCategory(cat, btn) {
@@ -406,8 +407,7 @@ function filterCategory(cat, btn) {
 }
 
 // 🔄 АВТОСБРОС КЭША ПРИ ОБНОВЛЕНИИ ФАЙЛА
-// 👇🏼 МЕНЯЙ ЭТУ ЦИФРУ КАЖДЫЙ РАЗ, КОГДА РЕДАКТИРУЕШЬ index.html
-const APP_VERSION = '1.1.0'; 
+const APP_VERSION = '1.2.0'; 
 if (localStorage.getItem('shopVersion') !== APP_VERSION) {
   localStorage.setItem('shopVersion', APP_VERSION);
   window.location.href = window.location.href.split('?')[0] + '?v=' + Date.now();
