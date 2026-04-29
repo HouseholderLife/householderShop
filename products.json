@@ -29,7 +29,7 @@
 {"id": 34, "name": "Зубная паста Natusana Whitening", "retail_price": 150, "our_price": 70, "stock": 1, "category": "Уход и гигиена", "img": "images/photo34.jpg"},
 {"id": 36, "name": "Бальзам оттеночный Палетт Платиновый Блонд", "retail_price": 270, "our_price": 120, "stock": 6, "category": "Уход и гигиена", "img": "images/photo36.jpg"},
 {"id": 37, "name": "Мыло твердое Dexclusive", "retail_price": 100, "our_price": 50, "stock": 4, "category": "Уход и гигиена", "img": "images/photo37.jpg"},
-{"id": 38, "name": "Лимфодренажная криомаска Likato Professional", "retail_price": 500, "our_price": 230, "stock": 2, "category": "Уход и гигиена", "img": "images/photo38.jpg"},
+{"id": 38, "name": "Лимфодренажная криомаска Likato Professional", "retail_price": 500, "our_price": 230, "stock": 1, "category": "Уход и гигиена", "img": "images/photo38.jpg"},
 {"id": 39, "name": "Бомбочка для ваннFabrik Cosmetology", "retail_price": 140, "our_price": 70, "stock": 3, "category": "Уход и гигиена", "img": "images/photo39.jpg"},
 {"id": 40, "name": "Дезодорант женский Фа Ритмы острова Бали", "retail_price": 250, "our_price": 120, "stock": 2, "category": "Уход и гигиена", "img": "images/photo40.jpg"},
 {"id": 41, "name": "Станок Evolution Pro Zollider 3", "retail_price": 680, "our_price": 340, "stock": 2, "category": "Уход и гигиена", "img": "images/photo41.jpg"},
